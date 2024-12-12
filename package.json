@@ -3,19 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "concurrently \"npm run dev --prefix client\" \"node server/wsServer.js\"",
+    "build": "next build --prefix client",
+    "start": "next start --prefix client"
   },
   "dependencies": {
+    "concurrently": "^9.1.0",
+    "next": "15.1.0",
+    "node": "^23.4.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.1.0"
+    "ws": "^8.18.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
     "eslint": "^9",
-    "eslint-config-next": "15.1.0",
-    "@eslint/eslintrc": "^3"
+    "eslint-config-next": "15.1.0"
   }
 }
